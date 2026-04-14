@@ -33,13 +33,72 @@ const defaultDesc = lang === 'hu'
     {lang === 'en' && <link rel="alternate" hreflang="hu" href="/" />}
     <title>{title} | ReformIt</title>
   </head>
-  <body>
+  <body class="relative">
+    <!-- Fixed grid only -->
+    <div class="fixed inset-0 z-0 pointer-events-none bg-[url('/grid.svg')] opacity-[0.04]"></div>
+    <!-- Scrolling orbs (randomised on each load via JS) -->
+    <div id="orb-layer" class="absolute inset-0 z-0 pointer-events-none overflow-hidden"></div>
     <Nav lang={lang} />
     <main>
       <slot />
     </main>
     <Footer lang={lang} />
     <script>
+      // Random orbs — stratified distribution
+      (function () {
+        const layer = document.getElementById('orb-layer');
+        if (!layer) return;
+
+        const MIN = 6, MAX = 12;
+        const colors = ['#6272f1','#7c3aed','#4f46e5','#8b5cf6','#6d28d9','#4338ca'];
+        const count  = MIN + Math.floor(Math.random() * (MAX - MIN + 1));
+        const pageH  = document.documentElement.scrollHeight;
+
+        // Horizontal zones: left-bleed | center-left | center-right | right-bleed
+        // Each orb is assigned a zone in round-robin order, then placed randomly within it.
+        // Zones defined as [minLeft%, maxLeft%] where left% is the orb center's x position.
+        const zones = [
+          [-15, 15],   // bleeds off left edge
+          [20,  45],   // left-center
+          [50,  75],   // right-center
+          [75, 105],   // bleeds off right edge
+        ];
+
+        for (let i = 0; i < count; i++) {
+          // Vertical: first orb is always in the first viewport, rest fill the page evenly
+          let top;
+          if (i === 0) {
+            top = Math.random() * window.innerHeight;
+          } else {
+            const remainingH = pageH - window.innerHeight;
+            const bandH = remainingH / (count - 1);
+            top = window.innerHeight + bandH * (i - 1) + Math.random() * bandH;
+          }
+
+          // Horizontal: cycle through zones so no side is neglected
+          const zone   = zones[i % zones.length];
+          const size   = 280 + Math.random() * 380;        // 280–660 px
+          const left   = zone[0] + Math.random() * (zone[1] - zone[0]);
+          const opacity = 0.07 + Math.random() * 0.11;     // 0.07–0.18
+          const color  = colors[Math.floor(Math.random() * colors.length)];
+
+          const el = document.createElement('div');
+          el.style.cssText = [
+            'position:absolute',
+            'border-radius:50%',
+            'filter:blur(80px)',
+            'pointer-events:none',
+            `width:${size}px`,
+            `height:${size}px`,
+            `top:${top}px`,
+            `left:${left}%`,
+            `opacity:${opacity}`,
+            `background:${color}`,
+          ].join(';');
+          layer.appendChild(el);
+        }
+      })();
+
       // Intersection Observer for reveal animations
       const observer = new IntersectionObserver(
         (entries) => {
