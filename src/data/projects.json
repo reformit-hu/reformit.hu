@@ -1,81 +1,29 @@
 {
   "projects": [
     {
-      "title": "NovaCommerce",
+      "title": "Gatto Rosso",
       "desc": {
-        "hu": "Modern e-kereskedelmi platform egyedi termékkonfigurátorral és valós idejű készletkövetéssel.",
-        "en": "Modern e-commerce platform with a custom product configurator and real-time inventory tracking."
-      },
-      "tags": ["ecommerce", "fullstack"],
-      "color": "from-brand-600 to-violet-600",
-      "iconType": "shop",
-      "image": null,
-      "url": null,
-      "year": "2025"
-    },
-    {
-      "title": "PulseAnalytics",
-      "desc": {
-        "hu": "SaaS dashboard komplex adatvizualizációkkal, valós idejű frissítésekkel és többfelhasználós hozzáféréssel.",
-        "en": "SaaS dashboard with complex data visualisations, real-time updates and multi-user access control."
-      },
-      "tags": ["webapp", "fullstack"],
-      "color": "from-violet-600 to-pink-600",
-      "iconType": "chart",
-      "image": null,
-      "url": null,
-      "year": "2025"
-    },
-    {
-      "title": "ArcStudio",
-      "desc": {
-        "hu": "Építészeti iroda portfólióoldala letisztult animációkkal, 3D galéria nézettel és CMS integrációval.",
-        "en": "Architecture studio portfolio with clean animations, a 3D gallery view and CMS integration."
+        "hu": "Promo weboldal egy esztergomi autentikus olasz étterem számára - étlappal, vendégvéleményekkel és helyszín információkkal.",
+        "en": "Promo website for an authentic Italian restaurant in Esztergom - menu, guest reviews and location info."
       },
       "tags": ["frontend"],
-      "color": "from-amber-500 to-orange-500",
-      "iconType": "building",
-      "image": null,
-      "url": null,
-      "year": "2025"
-    },
-    {
-      "title": "MedBook",
-      "desc": {
-        "hu": "Orvosi időpontfoglaló rendszer automatikus emlékeztetőkkel, fizetési integrációval és betegportállal.",
-        "en": "Medical appointment booking system with automated reminders, payment integration and a patient portal."
-      },
-      "tags": ["webapp", "fullstack"],
-      "color": "from-green-500 to-teal-500",
-      "iconType": "medical",
-      "image": null,
-      "url": null,
+      "color": "from-red-500 to-orange-500",
+      "iconType": "utensils",
+      "image": "/projects/gatto-rosso.jpg",
+      "url": "https://gr.ballabotond.com",
       "year": "2026"
     },
     {
-      "title": "Forte Music",
+      "title": "Negra Kávézó",
       "desc": {
-        "hu": "Zeneiskola weboldala online kurzusokkal, videólejátszóval és egyéni órarend-kezelővel.",
-        "en": "Music school website with online courses, a video player and a personalised schedule manager."
+        "hu": "Modern promo weboldal egy kávézó számára - szezonális itallap, vendégvélemények és kapcsolati információk.",
+        "en": "Modern promo website for a café - seasonal drink menu, customer reviews and contact information."
       },
-      "tags": ["fullstack"],
-      "color": "from-pink-500 to-rose-500",
-      "iconType": "music",
-      "image": null,
-      "url": null,
-      "year": "2026"
-    },
-    {
-      "title": "GreenRoute",
-      "desc": {
-        "hu": "Fenntartható turisztikai weboldal interaktív térképpel, blog motorral és hírlevél integrációval.",
-        "en": "Sustainable tourism website with an interactive map, a blog engine and newsletter integration."
-      },
-      "tags": ["frontend", "fullstack"],
-      "color": "from-teal-500 to-brand-500",
-      "iconType": "leaf",
-      "image": null,
-      "url": null,
+      "tags": ["frontend"],
+      "color": "from-amber-800 to-stone-600",
+      "iconType": "coffee",
+      "image": "/projects/negra-kavezo.jpg",
+      "url": "https://ngra.ballabotond.com",
       "year": "2026"
     }
   ]
